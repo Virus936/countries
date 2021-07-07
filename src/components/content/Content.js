@@ -7,18 +7,17 @@ function Content({states, filter, region}){
   return(
     <Container>
       { states && states.filter(country => {
-        if (filter === '') {
+        if (filter === '' && region === '') {
           return country
-        }else if (country.name.toLowerCase().includes(filter.toLowerCase())){
+        }else if (region === '' && country.name.toLowerCase().includes(filter.toLowerCase())){
           return country
-        }
-      }).filter( country => {
-        if (region === '') {
+        }else if (filter === '' && country.region === region ) {
           return country
-        }else if (country.region == region) {
+        }else if (country.region === region && country.name.toLowerCase().includes(filter.toLowerCase())) {
           return country
         }
-      } ).map( country => { 
+        return false
+      }).map( country => { 
         return  <CountryCard 
                   key={country.name}
                   name = {country.name} 

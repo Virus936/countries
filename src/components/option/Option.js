@@ -25,7 +25,7 @@ function Option({handleFilter, handleRegion}){
         >
           <option aria-label="None" value="" />
           <option value={'Africa'}>Afrique</option>
-          <option value={'America'}>Amérique</option>
+          <option value={'Americas'}>Amérique</option>
           <option value={'Asia'}>Asie</option>
           <option value={'Europe'}>Europe</option>
           <option value={'Oceania'}>Océanie</option>

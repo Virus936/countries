@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import styled from 'styled-components'
 import DarkModeToggle from 'react-dark-mode-toggle'
+import { Link } from 'react-router-dom';
 
 function Header(){
   const [isDarkMode, setIsDarkMode] = useState( () => false )
   return(
     <Container>
-      <Logo>contries</Logo>
+      <Link to='/'>contries</Link>
       <DarkModeToggle
         onChange={setIsDarkMode}
         checked={isDarkMode}
@@ -24,11 +25,14 @@ const Container = styled.header`
   justify-content:space-between;
   background-color:var(--light-theme-components-color);
   padding:0 60px;
-  
-`
-const Logo = styled.a`
-  cursor:pointer;
-  font-size:2em
+  & a {
+    text-transform:capitalize;
+    font-variant-caps: small-caps;
+    cursor:pointer;
+    text-decoration:none;
+    color:inherit;
+    font-size:2em
+  }
 `
 
 export default Header

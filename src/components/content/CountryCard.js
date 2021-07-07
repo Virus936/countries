@@ -1,16 +1,19 @@
 import styled from 'styled-components'
 import NumberFormat from 'react-number-format';
+import { Link } from 'react-router-dom';
 
 function CountryCard({flag, name, population, capital, region}){
   return(
     <Container>
+      <Link to={name}>
       <img src={flag} width='100%' alt="" />
-      <div>
-      <h1>{name}</h1>
-      <p><strong>Population :</strong> <NumberFormat value={population} displayType={'text'} thousandSeparator={true}/></p>
-      <p><strong>Capital :</strong> {capital}</p>
-      <p><strong>region :</strong> {region}</p>
-    </div>
+        <div>
+        <h1>{name}</h1>
+        <p><strong>Population :</strong> <NumberFormat value={population} displayType={'text'} thousandSeparator={true}/></p>
+        <p><strong>Capital :</strong> {capital}</p>
+        <p><strong>region :</strong> {region}</p>
+        </div>
+      </Link>
     </Container>
     )
 }
@@ -27,6 +30,10 @@ const Container = styled.article`
   }
   & h1 {
     margin-bottom:12px;
+  }
+  & a {
+    text-decoration:none;
+      color:inherit;
   }
 `
 CountryCard.defaultProps = {
