@@ -22,7 +22,8 @@ const Container = styled.article`
   flex-direction:column;
   width:399px;
   overflow:hidden;
-  background-color:var(--light-theme-components-color);
+  background-color:${props => props.theme.components};
+  color:${props => props.theme.color};
   box-shadow: 0 0 10px purple;
   border-radius:5px;
   & div{

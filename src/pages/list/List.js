@@ -28,7 +28,6 @@ function List(){
 }
 
 const Container = styled.main`
-  background-color:var(--light-theme-bg-color);
   min-height:calc(100vh - 100px);
 `
 

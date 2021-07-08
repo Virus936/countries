@@ -40,9 +40,10 @@ const Container = styled.div`
 
   justify-content:space-around;
   align-items:center;
-  & > *{
 
-    background-color:var(--light-theme-components-color);
+  .MuiInputBase-root {
+    color:${props => props.theme.color};
+    background-color:${props => props.theme.components};
   }
 `
 

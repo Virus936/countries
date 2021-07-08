@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import './App.css';
 import Header from './components/header/Header';
 import List from './pages/list/List'
 import Details from './pages/details/Details'
-import styled from 'styled-components';
+import {ThemeProvider, createGlobalStyle} from 'styled-components';
+import {lightTheme, darkTheme} from './theme/theme'
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,10 +13,13 @@ import {
 
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState( () => false )
+
   return (
-    <Container >
+    <ThemeProvider theme={isDarkMode? darkTheme:lightTheme} >
+      <GlobalStyle />
       <Router>
-      <Header/>
+        <Header isDarkMode = {isDarkMode} handleTheme={setIsDarkMode}/>
         <Switch>
           <Route path='/:country'>
             <Details />
@@ -24,12 +29,14 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </Container>
+    </ThemeProvider>
   );
 }
 
-const Container = styled.div`
-
+const GlobalStyle = createGlobalStyle`
+  #root{
+    background-color:${(props)=>{console.log(props.theme);return props.theme.body}}
+  }
 `
 
 
